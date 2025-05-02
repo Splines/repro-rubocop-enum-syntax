@@ -1,8 +1,9 @@
-# Reproduction for how `Rails/EnumSyntax` issue
+# Reproduction for `Rails/EnumSyntax` issue
 
 This repository was spun up using the command `rails new <name> --devcontainer`. Only the following files were added:
 
 - `app/models/enum.rb`
+- `lib/enum_lib.rb`
 
 To reproduce the issue, follow these steps:
 
