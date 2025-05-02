@@ -1,24 +1,18 @@
-# README
+# Reproduction for how `Rails/EnumSyntax` issue
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository was spun up using the command `rails new <name> --devcontainer`. Only the following files were added:
 
-Things you may want to cover:
+- `app/models/enum.rb`
 
-* Ruby version
+To reproduce the issue, follow these steps:
 
-* System dependencies
+```sh
+git clone https://github.com/Splines/repro-rubocop-enum-syntax.git
 
-* Configuration
+# This should give 1 offenses
+bin/rubocop app/models/enum.rb
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# This should also give 1 offenses, since the file content is the same as enum.rb
+# However, it yields 0 offenses.
+bin/rubocop lib/enum_lib.rb
+```
